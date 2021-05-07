@@ -1,9 +1,8 @@
 pipeline {
   agent any
   stages {
-    stage('Test unitaire') {
+    stage('Test mvn') {
       steps {
-          echo 'test unitaire à faire'
          sh 'mvn test'
       }
     }       
