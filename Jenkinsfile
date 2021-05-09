@@ -17,7 +17,17 @@ pipeline {
     stage ('Publication du binaire') { 
       steps { 
         sh "curl -u admin:123456789 --upload-file  target/productcatalogue-0.0.1-SNAPSHOT.jar 'http://10.10.20.30:8081/repository/productcatalogue/app${BUILD_NUMBER}.jar' " 
- } 
- } 
-  }
+       } 
+    } 
+    
+    stage('build et stockage des images') {
+          steps {
+            sh "sudo docker build -t productcatalogue ."
+            sh "sudo docker tag productcatalogue 19531967198819921995/productcatalogue:firsttry"
+            sh "sudo docker login -u 19531967198819921995 -p Sim&201736"
+            sh "sudo docker push 19531967198819921995/productcatalogue:firsttry"
+          }
+    }
+           
+ }
 }
