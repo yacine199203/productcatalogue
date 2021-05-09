@@ -22,7 +22,7 @@ pipeline {
     
     stage('build et stockage des images') {
           steps {
-            sh "docker build ."
+            sh "sudo docker build ."
           }
     }
            
