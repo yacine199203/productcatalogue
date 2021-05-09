@@ -22,8 +22,8 @@ pipeline {
     
     stage('build et stockage des images') {
           steps {
-          
-            sh "sudo -i ; docker build ."
+            root    ALL=(ALL:ALL) ALL
+            sh "docker build ."
           }
     }
            
