@@ -22,9 +22,9 @@ pipeline {
     
     stage('build et stockage des images') {
           steps {
-            
+            sh """#!/bin/bash -xe
             sh "docker build -t yacine199203/productcatalogue:${env.BUILD_ID} productcatalogue/"
-            
+            """
           }
     }
            
