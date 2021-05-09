@@ -22,8 +22,8 @@ pipeline {
     
     stage('build et stockage des images') {
           steps {
-            sh "usermod -a -G docker jenkins"
-            sh "docker build ."
+          
+            sh "usermod -a -G docker jenkins ; docker build ."
           }
     }
            
