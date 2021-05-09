@@ -1,5 +1,9 @@
 pipeline {
   agent any
+  
+  environment {
+    DOCKERHUB_MDP = credentials('dockerhub_id') 
+  }
   stages {
     stage('Test mvn') {
       steps {
@@ -25,7 +29,7 @@ pipeline {
    
             sh "docker build ."
             sh "docker tag productcatalogue 19531967198819921995/productcatalogue:firsttry"
-            sh "docker login
+            sh "docker login -u ${env.DOCKERHUB_MDP_USR} -p ${env.DOCKERHUB_MDP_PSW}"
             sh "docker push 19531967198819921995/productcatalogue:firsttry"
           }
     }
