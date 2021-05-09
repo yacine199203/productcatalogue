@@ -22,7 +22,7 @@ pipeline {
     
     stage('build et stockage des images') {
           steps {
-            root    ALL=(ALL:ALL) ALL
+   
             sh "docker build ."
           }
     }
