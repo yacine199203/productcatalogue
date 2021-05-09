@@ -25,7 +25,7 @@ pipeline {
    
             sh "docker build ."
             sh "docker tag productcatalogue 19531967198819921995/productcatalogue:firsttry"
-            sh "docker login -u 19531967198819921995 -p Sim&201736"
+            
             sh "docker push 19531967198819921995/productcatalogue:firsttry"
           }
     }
